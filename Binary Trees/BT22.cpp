@@ -1,3 +1,4 @@
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -13,11 +14,12 @@ public:
         if(root==NULL||root==p||root==q){
             return root;
         }
-        if(root->left!=NULL && root->right!=NULL){
-            return root;
-        }
+        
         TreeNode* left=lowestCommonAncestor(root->left,p,q);
         TreeNode* right=lowestCommonAncestor(root->right,p,q);
+        if(left!=NULL && right!=NULL){
+            return root;
+        }
         if(left!=NULL){
             return left;
         }
